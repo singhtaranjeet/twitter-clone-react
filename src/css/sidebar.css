@@ -1,0 +1,60 @@
+.sideBar_item {
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.sideBar {
+  padding: 20px;
+  border-right: var(--background-color) solid 1px;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  overflow-y: auto;
+  flex: 1;
+}
+.sideBar_item a {
+  text-decoration: none;
+}
+.sideBar_item h2 {
+  font-size: 1rem;
+}
+
+.sideBar_item a > div {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  padding-right: 12px;
+  padding-top: 12px;
+  padding-bottom: 12px;
+}
+.sideBar_item:hover {
+  background-color: var(--twitter-background-hover-color);
+  border-radius: 50px;
+}
+
+.sideBar_item .MuiSvgIcon-root {
+  padding-right: 20px;
+  padding-left: 12px;
+  color: black;
+}
+.sideBar_item .active h2 {
+  color: var(--twitter-color);
+}
+.sideBar_item .active .MuiSvgIcon-root {
+  color: var(--twitter-color);
+}
+
+.sideBar__tweet-button {
+  background-color: hsl(202.8, 89.1%, 53.1%);
+  padding: 12px 15px 12px 15px;
+  color: white;
+  margin-top: 5px;
+  border: none;
+  width: 100%;
+  border-radius: 50px;
+  font-weight: 700;
+  font-size: 20px;
+}
+.sideBar__tweet-button:hover {
+  background-color: hsl(202.8, 89.1%, 43.1%);
+}

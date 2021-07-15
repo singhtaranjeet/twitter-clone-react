@@ -1,0 +1,19 @@
+.page_topBar{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  border-bottom: solid var(--background-color) 1px;
+  font-size: 18px;
+}
+.home_page{
+  flex: 4;
+  display: flex;
+}
+.home_content{
+  flex: 2;
+  border-right: var(--background-color) solid 1px;
+}
+.trending_section{
+  flex:1; 
+}
