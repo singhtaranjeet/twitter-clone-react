@@ -2,11 +2,13 @@
 @import "./css/home.css";
 @import "./css/create_tweet.css";
 @import "./css/tweets_list_view.css";
+@import "./css/login.css";
 
 * {
   margin: 0;
   --background-color: rgb(247, 249, 249);
   --twitter-color: hsl(202.8, 89.1%, 53.1%);
+  --twitter-disabled-color: hsl(202.8, 89.1%, 73.1%);
   --twitter-background-hover-color: rgba(29, 161, 242, 0.1);
 }
 

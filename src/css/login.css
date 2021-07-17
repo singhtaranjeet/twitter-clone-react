@@ -1,0 +1,51 @@
+.login {
+  display: flex;
+  width: 100%;
+  height: 100vh;
+  flex-direction: center;
+  justify-content: center;
+  align-items: start;
+  font-weight: bolder;
+}
+.MuiSvgIcon-root.twitter_icon {
+  width: 40px;
+  height: 40px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+.login_box {
+  width: 25%;
+}
+.login_form {
+  display: flex;
+  flex-direction: column;
+}
+.login_textbox {
+  margin-top: 20px !important;
+}
+
+.login_button {
+  margin-top: 20px;
+  height: 50px;
+  background-color: var(--twitter-color);
+  color: white;
+  border-radius: 25px;
+  border: none;
+  font-size: 1.1rem;
+  font-weight: bold;
+}
+.login_button:disabled{
+  background-color: var(--twitter-disabled-color);
+}
+
+.login_text {
+  font-size: 1.8rem;
+}
+.login_other_actions {
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-around;
+}
+.login_other_actions a {
+  color: var(--twitter-color);
+}
