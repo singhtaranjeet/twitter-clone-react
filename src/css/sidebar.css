@@ -58,3 +58,10 @@
 .sideBar__tweet-button:hover {
   background-color: hsl(202.8, 89.1%, 43.1%);
 }
+.sideBar_item a:link, .sideBar_item a:visited {
+  color: black;
+}
+
+.sideBar_item a:hover, .MuiSvgIcon-root:hover{
+  color: var(--twitter-color);
+}

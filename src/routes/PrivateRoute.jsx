@@ -1,26 +1,19 @@
 import React from 'react'
 import { Route, Redirect, withRouter } from "react-router-dom"
 import SideBar from '../components/common/SideBar'
+import * as AuthHelper from '../helper/AuthHelper'
+
 function PrivateRoute(
   { component: Component,
     loginRoute = "/login",
     withSideBar = true,
+    history,
+    goBackLink,
+    match,
     ...rest }
 ) {
-  const fakeAuth = {
-    isAuthenticated: false,
-    authenticate(cb) {
-      this.isAuthenticated = true
-      setTimeout(cb, 100) // fake async
-    },
-    signout(cb) {
-      this.isAuthenticated = false
-      setTimeout(cb, 100) // fake async
-    }
-  }
-
   const renderer = (props) => {
-    if (fakeAuth.isAuthenticated !== true) {
+    if (AuthHelper.isLoggedIn() !== true) {
       return <Redirect to={loginRoute} />
     }
 

@@ -1,9 +1,13 @@
 import React, { useState } from 'react'
-import TwitterIcon from '@material-ui/icons/Twitter';
-import TextField from '@material-ui/core/TextField';
-import { withStyles } from "@material-ui/core/styles";
+import TwitterIcon from '@material-ui/icons/Twitter'
+import TextField from '@material-ui/core/TextField'
+import { withStyles } from "@material-ui/core/styles"
+import AuthenticationService from '../service/authentication_service'
+import * as AuthHelper from '../helper/AuthHelper'
+import { useHistory } from 'react-router-dom'
+import { RoutesHelper } from '../helper/RoutesHelper'
 
-const twitterColorString = "hsl(202.8, 89.1%, 53.1%)";
+const twitterColorString = "hsl(202.8, 89.1%, 53.1%)"
 const TwitterTextField = withStyles({
   root: {
     '& label.Mui-focused': {
@@ -26,7 +30,8 @@ const TwitterTextField = withStyles({
   }
 })(TextField)
 
-function Login() {
+function Login(props) {
+  const history = useHistory()
   const [userName, setUserName] = useState("")
   const [password, setPassword] = useState("")
 
@@ -39,8 +44,15 @@ function Login() {
     const password = event.target.value
     setPassword(password)
   }
-  const handleFormSubmit = (event) => {
+  const handleFormSubmit = async (event) => {
     event.preventDefault();
+    const response = await AuthenticationService.login({ userName, password })
+    if (!response) {
+      console.log("Error")
+      return
+    }
+    AuthHelper.setAuthToken(response.jwt)
+    history.push(RoutesHelper.home)
   }
   const validatedInputs = () => {
     if (!userName) return false

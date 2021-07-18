@@ -1,8 +1,9 @@
-@import "./css/sidebar.css";
-@import "./css/home.css";
-@import "./css/create_tweet.css";
-@import "./css/tweets_list_view.css";
-@import "./css/login.css";
+@import './css/sidebar.css';
+@import './css/home.css';
+@import './css/create_tweet.css';
+@import './css/tweets_list_view.css';
+@import './css/login.css';
+@import './css/tweet.css';
 
 * {
   margin: 0;
@@ -15,17 +16,19 @@
 .page_title {
   font-weight: 800;
 }
-.divider{
+.divider {
   height: 10px;
   background-color: var(--background-color);
 }
 
-textarea:focus, input:focus{
+textarea:focus,
+input:focus {
   outline: none;
 }
 
-.twitter_action_button{
-  width: 30px; height: 30px;
+.twitter_action_button {
+  width: 30px;
+  height: 30px;
   background-color: transparent;
   border: none;
   margin-top: 4px;
@@ -38,9 +41,16 @@ textarea:focus, input:focus{
   justify-content: center;
   align-items: center;
 }
-.twitter_action_button:hover{
+.twitter_action_button:hover {
   background-color: var(--twitter-background-hover-color);
 }
-.MuiSvgIcon-root{
+.MuiSvgIcon-root {
   color: hsl(202.8, 89.1%, 53.1%);
+}
+
+.user_avatar {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: aqua;
 }

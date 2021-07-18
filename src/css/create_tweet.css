@@ -15,11 +15,12 @@
   width: 100%;
   overflow: auto;
   margin-left: 5px;
+  margin-top: 15px;
   min-height: 40px;
   max-height: 100px;
   resize: none;
   font-size: 1.1rem;
-  text-align: center;
+  text-align: start;
 }
 .create-tweet-button {
   background-color: var(--twitter-color);
@@ -46,7 +47,7 @@
 
 .tweet_actions{
   display: flex;
-  margin-top: 20px;
+  margin-top: 10px;
 }
 .create_new_tweet_box{
   flex: 5; 

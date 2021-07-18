@@ -4,19 +4,22 @@ import GifOutlinedIcon from '@material-ui/icons/GifOutlined';
 import EqualizerOutlinedIcon from '@material-ui/icons/EqualizerOutlined';
 import SentimentSatisfiedOutlinedIcon from '@material-ui/icons/SentimentSatisfiedOutlined';
 import EventOutlinedIcon from '@material-ui/icons/EventOutlined';
+import TweetService from '../service/tweet_service';
+import UserAvatar from "../components/common/UserAvatar"
 function CreateTweet() {
   const [tweet, setTweet] = useState("")
-  function handleSubmit(event) {
+  async function handleSubmit(event) {
     event.preventDefault();
-    console.log(tweet)
+    let response =  await TweetService.create(tweet)
   }
   function handleOnChange(event) {
     let currentTweet = event.target.value
     setTweet(currentTweet)
+
   }
   return (
     <div className="create_new_tweet">
-      <div className="user_avatar"></div>
+      <UserAvatar/>
       <div className="create_new_tweet_box">
         <form className="create_tweet_form" onSubmit={handleSubmit}>
           
