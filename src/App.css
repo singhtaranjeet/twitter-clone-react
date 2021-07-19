@@ -4,6 +4,7 @@
 @import './css/tweets_list_view.css';
 @import './css/login.css';
 @import './css/tweet.css';
+@import './css/tweet_show.css';
 
 * {
   margin: 0;

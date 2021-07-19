@@ -3,13 +3,13 @@ import TweetsListView from './common/TweetsListView'
 import CreateTweet from './CreateTweet'
 import Divider from "./common/Divider"
 
-function TwitterHomeFeed() {
+function TwitterHomeFeed({currentUser}) {
 
   return (
     <>
       <CreateTweet></CreateTweet>
       <Divider/>
-      <TweetsListView></TweetsListView>
+      <TweetsListView currentUser={currentUser}></TweetsListView>
     </>
   )
 }

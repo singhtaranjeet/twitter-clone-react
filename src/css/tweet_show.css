@@ -1,0 +1,55 @@
+.tweet_show {
+  display: flex;
+  flex: 4;
+  cursor: auto;
+}
+
+.tweet_show_box {
+  display: flex;
+  flex-direction: column;
+  margin-left: 5px;
+}
+
+.tweet_show_header {
+  display: flex;
+  flex-direction: row;
+  padding: 10px;
+}
+.MuiButtonBase-root.MuiIconButton-root{
+  margin-right: 20px;
+  cursor: pointer;
+}
+
+.tweet_show_topBar {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  padding: 10px 20px;
+  border-bottom: solid var(--background-color) 1px;
+  font-size: 18px;
+  font-weight: bolder;
+  margin-bottom: 10px;
+}
+.tweet_show_page {
+  flex: 2;
+  border-right: solid 1px var(--background-color);
+}
+.tweet_show_trending_section {
+  flex: 1;
+}
+.tweet_show_username {
+  color: grey;
+}
+.tweet_header_box {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  justify-content: space-between;
+}
+.tweet_user_info{
+  margin-left:10px;
+}
+.show_tweet_post{
+  padding: 10px;
+  font-size: 1.2rem;
+}

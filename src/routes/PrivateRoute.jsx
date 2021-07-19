@@ -10,12 +10,14 @@ function PrivateRoute(
     history,
     goBackLink,
     match,
+    state,
     ...rest }
 ) {
   const renderer = (props) => {
     if (AuthHelper.isLoggedIn() !== true) {
       return <Redirect to={loginRoute} />
     }
+    if (!withSideBar) return (<Component {...props} />)
 
     return (<>
       <SideBar />

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import TweetService from '../../service/tweet_service'
 import Tweet from './Tweet'
 
-function TweetsListView(props) {
+function TweetsListView({currentUser}) {
   const [tweets, setTweets] = useState([])
   useEffect(() => {
     const fetchTweets = async () => {
@@ -14,7 +14,7 @@ function TweetsListView(props) {
   }, [])
   return (
     <div className="tweets_list_view">
-      {tweets.map((tweet) => (<Tweet key={tweet.id} tweet={tweet} />))}
+      {tweets.map((tweet) => (<Tweet key={tweet.id} tweet={tweet} currentUser={currentUser}/>))}
     </div>
   )
 }

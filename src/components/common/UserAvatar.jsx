@@ -1,8 +1,8 @@
 import React from 'react'
 
-function UserAvatar() {
+function UserAvatar({ onClick }) {
   return (
-    <div className="user_avatar"></div>
+    <div className="user_avatar" onClick={onClick}></div>
   )
 }
 

@@ -37,12 +37,10 @@ function Login(props) {
 
 
   const handleUsernameChange = (event) => {
-    const userName = event.target.value
-    setUserName(userName)
+    setUserName(event.target.value)
   }
   const handlePasswordChange = (event) => {
-    const password = event.target.value
-    setPassword(password)
+    setPassword(event.target.value)
   }
   const handleFormSubmit = async (event) => {
     event.preventDefault();

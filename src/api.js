@@ -7,8 +7,11 @@ export const getAPIClient = () => {
   if (authorization) {
     headers['Authorization'] = authorization
   }
-  headers["Access-Control-Allow-Origin"] = "*"
-  return axios.create({ baseURL: process.env.REACT_APP_BACKEND_BASE_URL, headers })
+  headers['Access-Control-Allow-Origin'] = '*'
+  return axios.create({
+    baseURL: process.env.REACT_APP_BACKEND_BASE_URL,
+    headers,
+  })
 }
 
 export const getAuthorizationToken = () => {
@@ -29,6 +32,7 @@ export const generateURL = (url, UrlReplacements) => {
 export const APIEndPoints = {
   login: { url: '/login', method: 'post' },
   profile: { url: '/profile', method: 'get' },
+  me: { url: '/me', method: 'get' },
   tweets: {
     create: { url: '/tweets', method: 'post' },
     show: { url: '/tweets/:id', method: 'get' },
