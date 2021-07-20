@@ -8,6 +8,7 @@ import Menu from '@material-ui/core/Menu';
 import IconButton from '@material-ui/core/IconButton';
 import { MenuItem } from '@material-ui/core';
 import KeyboardBackspaceIcon from '@material-ui/icons/KeyboardBackspace';
+import { RoutesHelper } from '../helper/RoutesHelper'
 
 
 function TweetShow(props) {
@@ -38,7 +39,7 @@ function TweetShow(props) {
     }
     fetchTweet()
     fetchUser()
-  }, [])
+  }, [id])
 
   const handleMoreButtonClick = (event) => {
     event.stopPropagation()
@@ -48,10 +49,26 @@ function TweetShow(props) {
   const handleBackButtonClick = () => {
     history.goBack()
   }
+  const performUserAction = (userAction) => {
+    if (userAction === "Delete") {
+      deleteTweet()
+    }
+  }
+  const deleteTweet = async () => {
+    const deletedTweet = await TweetService.delete(id)
+    if (!deletedTweet) {
+      return
+    }
+
+    history.replace(RoutesHelper.home)
+  }
 
   const handleClose = (event) => {
+
     console.log(event.target.textContent)
+    const userAction = event.target.textContent
     event.stopPropagation()
+    performUserAction(userAction)
     setAnchorEl(null)
     setIsMenuOpened(false)
   }
@@ -67,7 +84,7 @@ function TweetShow(props) {
               Thread
             </></div>
           {loadingTweet || loadingUser
-            ? <div>Loading</div>
+            ? <div className="loading_tweet">Loading</div>
             :
             <div className="show_tweet_box">
               <div className="tweet_show_header">

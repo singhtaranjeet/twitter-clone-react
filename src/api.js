@@ -38,6 +38,7 @@ export const APIEndPoints = {
     show: { url: '/tweets/:id', method: 'get' },
     index: { url: '/tweets', method: 'get' },
     update: { url: '/tweets/:id', method: 'put' },
+    delete: { url: '/tweets/:id', method: 'delete' },
   },
   user: {
     create: { url: '/users', method: 'post' },

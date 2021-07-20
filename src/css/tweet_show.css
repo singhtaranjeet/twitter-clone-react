@@ -53,3 +53,9 @@
   padding: 10px;
   font-size: 1.2rem;
 }
+
+.loading_tweet{
+  display: flex;
+  justify-content: center;
+  margin: 10px;
+}

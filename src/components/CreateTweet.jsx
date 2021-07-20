@@ -6,11 +6,17 @@ import SentimentSatisfiedOutlinedIcon from '@material-ui/icons/SentimentSatisfie
 import EventOutlinedIcon from '@material-ui/icons/EventOutlined';
 import TweetService from '../service/tweet_service';
 import UserAvatar from "../components/common/UserAvatar"
-function CreateTweet() {
+function CreateTweet({ onTweetCreated }) {
   const [tweet, setTweet] = useState("")
   async function handleSubmit(event) {
     event.preventDefault();
-    let response =  await TweetService.create(tweet)
+    let response = await TweetService.create(tweet)
+    if (!response) return
+
+    onTweetCreated((tweets) => {
+      return [response, ...tweets]
+    })
+    setTweet("")
   }
   function handleOnChange(event) {
     let currentTweet = event.target.value
@@ -19,10 +25,10 @@ function CreateTweet() {
   }
   return (
     <div className="create_new_tweet">
-      <UserAvatar/>
+      <UserAvatar />
       <div className="create_new_tweet_box">
         <form className="create_tweet_form" onSubmit={handleSubmit}>
-          
+
           <textarea name="tweet" className="tweet_input_box" value={tweet} type="text" placeholder="Whats Happening?" onChange={handleOnChange}></textarea>
           <div className="tweet_actions">
             <button className="twitter_action_button">

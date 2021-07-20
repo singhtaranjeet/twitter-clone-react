@@ -6,37 +6,49 @@ import IconButton from '@material-ui/core/IconButton';
 import { MenuItem } from '@material-ui/core';
 import { useHistory } from 'react-router-dom'
 import { RoutesHelper } from '../../helper/RoutesHelper';
+import TweetService from '../../service/tweet_service'
 
-function Tweet({ tweet, currentUser, showHoverClick = true }) {
+function Tweet({ tweet, currentUser, showHoverClick = true, setTweets, tweetRef }) {
   const tweetOwnerOptions = [{ id: "delete", name: "Delete" }]
   const tweetViewerOptions = [{ id: "report", name: "Report" }, { id: "follow", name: "Follow" }]
   const [isMenuOpened, setIsMenuOpened] = useState(false);
   const [anchorEl, setAnchorEl] = useState(null)
   const history = useHistory()
+
   const handleMoreButtonClick = (event) => {
     event.stopPropagation()
     setAnchorEl(event.currentTarget)
     setIsMenuOpened(!isMenuOpened)
   }
   const handleClose = (event) => {
-    console.log(event.target.textContent)
     event.stopPropagation()
+    const userAction = event.target.textContent
+    handleUserAction(userAction)
     setAnchorEl(null)
     setIsMenuOpened(false)
   }
   const handleTweetClicked = (event) => {
     if (!showHoverClick) return
-
-    console.log("Tweet Cicked")
     history.push(`tweets/${tweet.id}`, [currentUser, tweet])
   }
   const handleAvatarClicked = (event) => {
     event.stopPropagation()
-    console.log("Avatar clicked")
+  }
+  const handleUserAction = (action) => {
+    if (action === "Delete") {
+      deleteTweet()
+    }
+  }
+  const deleteTweet = async () => {
+    const response = TweetService.delete(tweet.id)
+    if (!response) { return }
+    setTweets((tweets) => {
+      return tweets.filter((t) => t.id !== tweet.id)
+    })
   }
 
   return (
-    <div className="tweet" onClick={handleTweetClicked}>
+    <div className="tweet" ref={tweetRef} onClick={handleTweetClicked}>
       <UserAvatar onClick={handleAvatarClicked} />
       <div className="tweet_box">
         <div className="tweet__user_info">
