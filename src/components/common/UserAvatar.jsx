@@ -1,8 +1,10 @@
 import React from 'react'
+import faker from 'faker'
 
 function UserAvatar({ onClick }) {
+  let randomImageUrl = faker.image.avatar()
   return (
-    <div className="user_avatar" onClick={onClick}></div>
+    <img className="user_avatar" onClick={onClick} src={randomImageUrl} alt="User avatar" />
   )
 }
 
