@@ -22,7 +22,7 @@ function TwitterHomeFeed({ currentUser }) {
 
   return (
     <>
-      <CreateTweet onTweetCreated={setTweets} />
+      <CreateTweet onTweetCreated={setTweets} userId={currentUser.id} />
       <Divider />
       {loading
         ? <div className="loading_tweet">Loading...</div>

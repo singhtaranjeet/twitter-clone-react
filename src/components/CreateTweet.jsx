@@ -6,7 +6,7 @@ import SentimentSatisfiedOutlinedIcon from '@material-ui/icons/SentimentSatisfie
 import EventOutlinedIcon from '@material-ui/icons/EventOutlined';
 import TweetService from '../service/tweet_service';
 import UserAvatar from "../components/common/UserAvatar"
-function CreateTweet({ onTweetCreated }) {
+function CreateTweet({ onTweetCreated, userId }) {
   const [tweet, setTweet] = useState("")
   async function handleSubmit(event) {
     event.preventDefault();
@@ -25,7 +25,7 @@ function CreateTweet({ onTweetCreated }) {
   }
   return (
     <div className="create_new_tweet">
-      <UserAvatar />
+      <UserAvatar userId = {userId}/>
       <div className="create_new_tweet_box">
         <form className="create_tweet_form" onSubmit={handleSubmit}>
 

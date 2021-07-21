@@ -49,7 +49,7 @@ function Tweet({ tweet, currentUser, showHoverClick = true, setTweets, tweetRef 
 
   return (
     <div className="tweet" ref={tweetRef} onClick={handleTweetClicked}>
-      <UserAvatar onClick={handleAvatarClicked} />
+      <UserAvatar onClick={handleAvatarClicked} userId={tweet.user.data.id} />
       <div className="tweet_box">
         <div className="tweet__user_info">
           <div>

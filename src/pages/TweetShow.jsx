@@ -88,7 +88,7 @@ function TweetShow(props) {
             :
             <div className="show_tweet_box">
               <div className="tweet_show_header">
-                <UserAvatar />
+                <UserAvatar userId={tweet.user.data.id}/>
                 <div className="tweet_header_box">
                   <div className="tweet_user_info">
                     <div className="tweet_creator">

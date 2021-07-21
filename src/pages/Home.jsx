@@ -17,11 +17,13 @@ export default function Home() {
   return (
     <div className="home_page">
       <div className="home_content">
+        <div className="page_stickey_header">
         <div className="page_topBar">
           <span className="page_title">Home</span>
           <button className="twitter_action_button">
             <ArrowUpwardIcon />
           </button>
+        </div>
         </div>
         <TwitterHomeFeed currentUser={currentUser}></TwitterHomeFeed>
       </div>
